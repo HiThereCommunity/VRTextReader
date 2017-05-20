@@ -1,0 +1,12 @@
+table {
+    font-size: xx-large;
+}
+
+    table td:first-child {
+        text-align: right;
+        vertical-align: top;
+    }
+
+.otherColor {
+    color: red;
+}
