@@ -132,28 +132,28 @@ export default class VRTextReader extends React.Component {
                     style={{
                         flex: 1,
                         flexDirection: "row",
-                        width: 5,
+                        width: 2,
                         alignItems: "stretch",
                         transform: [{ translate: [-4, 1, -5] }],
                         marginBottom: 0.1
                     }}>
                     <VrButton
-                        style={{ flex: 1, height: 0.3, backgroundColor: "green", marginRight: 0.1 }}
+                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "green", marginRight: 0.1 }}
                         onClick={this._start}
                     >
-                        <Text style={{ fontSize: 0.2, textAlign: "center" }}>Start</Text>
+                        <Image style={{ width: 0.25, height: 0.25 }} source={asset("play.png")}/>
                     </VrButton>
                     <VrButton
-                        style={{ flex: 1, height: 0.3, backgroundColor: "grey", marginRight: 0.1 }}
+                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "grey", marginRight: 0.1 }}
                         onClick={this._pauze.bind(this)}
                     >
-                        <Text style={{ fontSize: 0.2, textAlign: "center" }}>Stop</Text>
+                        <Image style={{ width: 0.25, height: 0.25 }} source={asset("stop.png")}/>
                     </VrButton>
                     <VrButton
-                        style={{ flex: 1, height: 0.3, backgroundColor: "red" }}
+                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "red" }}
                         onClick={this._reset.bind(this)}
                     >
-                        <Text style={{ fontSize: 0.2, textAlign: "center" }}>Reset</Text>
+                        <Image style={{ width: 0.25, height: 0.25 }} source={asset("replay.png")}/>
                     </VrButton>
                 </View>
                 <View style={{
