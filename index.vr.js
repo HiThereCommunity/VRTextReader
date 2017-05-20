@@ -18,7 +18,7 @@ export default class VRTextReader extends React.Component {
         }
     }
   componentDidMount() {
-    var intervalId = setInterval(this.timer, 150);
+    var intervalId = setInterval(this.timer, 200);
     // store intervalId in the state so it can be accessed later:
     this.setState({ intervalId: intervalId });
   }
