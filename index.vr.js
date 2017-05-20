@@ -1,7 +1,6 @@
 import React from "react";
 import { AppRegistry, asset, Pano, Text, View } from "react-vr";
 import text from "./text";
-import TextSplitter from './TextSplitter';
 const textSplit = text.split(" ");
 
 export default class VRTextReader extends React.Component {
