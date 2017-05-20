@@ -31,7 +31,6 @@ export default class Speaker extends Component {
   render() {
     const { props } = this;
     const { selected } = this.state;
-    console.log("render");
     const url = props.profileUrl ? props.profileUrl : defaultURL;
     return (
       <View
@@ -49,12 +48,12 @@ export default class Speaker extends Component {
       >
         <VrButton onClick={props.onClick}>
           <View>
+            <View style={{backgroundColor:'black'}}>
             <Image
               source={{ uri: url }}
               style={{
                 width: 1,
                 height: 1,
-                backgroundColor: "black",
                 opacity: selected ? 1 : 0.5
               }}
             />
@@ -89,6 +88,7 @@ export default class Speaker extends Component {
               >
                 {props.title}
               </Text>
+              </View>
             </View>
           </View>
         </VrButton>

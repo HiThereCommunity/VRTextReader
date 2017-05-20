@@ -25,8 +25,7 @@ export default class ViewColoredBoxesWithText extends Component {
   props: Props;
 
   render() {
-    const { avatarUrl, name } = this.props.speaker;
-
+    const { avatarUrl, name, talks } = this.props.speaker;
     return (
         <View
           style={{
@@ -38,13 +37,16 @@ export default class ViewColoredBoxesWithText extends Component {
             marginBottom: 0.1
           }}
         >
-          <View style={{ marginRight: 1, height: 2, width: 2, backgroundColor: "white" }}>
+          <View style={{ marginRight: 0.2, height: 2, width: 2 }}>
             <Image source={{ uri: avatarUrl }} style={{ width: 2, height: 2 }}/>
           </View>
           <View
-            style={{ width: 2, height: 2, backgroundColor: "grey" }}
+            style={{ width: 3, height: 2}}
           >
-            <Text style={{ fontSize: 0.2, textAlign: "center" }}>{name}</Text>
+            <Text style={{ fontSize: 0.2, textAlign: "left" }}>Name:</Text>
+            <Text style={{ fontSize: 0.2, textAlign: "left", marginBottom: 0.1 }}>{name}</Text>
+            <Text style={{ fontSize: 0.2, textAlign: "left" }}>Talk:</Text>
+            <Text style={{ fontSize: 0.2, textAlign: "left" }}>{talks[0].title}</Text>
           </View>
         </View>
     );
