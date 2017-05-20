@@ -178,7 +178,7 @@ export default class VRTextReader extends React.Component {
                     backgroundColour: 'white',
                     transform: [{ translate: [-4, 1, -5] }]
                 }}>
-                    <View style={{ margin: 0, height: 1, width: 2 }}>
+                    <View style={{ marginLeft: 0.3, height: 1, width: 2 }}>
                         <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'white' }}>{this.state.leftPartOfWord}</Text>
                     </View>
                     <View style={{ margin: 0, height: 1 }}>
