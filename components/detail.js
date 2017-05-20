@@ -126,8 +126,7 @@ export default class VRTextReader extends React.Component {
                         alignItems: "stretch",
                         transform: [{ translate: [-4, 1, -5] }],
                         marginBottom: 0.1
-                    }}
-                >
+                    }}>
                     <VrButton
                         style={{ flex: 1, height: 0.3, backgroundColor: "green", marginRight: 0.1 }}
                         onClick={this._start}
@@ -151,26 +150,35 @@ export default class VRTextReader extends React.Component {
                     <View style={{
                         flex: 1,
                         flexDirection: 'row',
-                        width: 12,
+                        width: 8,
                         alignItems: 'stretch',
                         transform: [{ translate: [-4, 1, -5] }]
                     }}>
-                        <View style={{ margin: 0, height: 1, backgroundColor: 'white', width: 4 }}>
+                        <View style={{ margin: 0, height: 1, backgroundColor: 'white', width: 3 }}>
                             <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'black' }}>{this.state.leftPartOfWord}</Text>
                         </View>
                         <View style={{ margin: 0, height: 1, backgroundColor: 'white' }}>
                             <Text style={{ fontSize: 0.6, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
                         </View>
-                        <View style={{ margin: 0, height: 1, backgroundColor: 'white', width: 8 }}>
+                        <View style={{ margin: 0, height: 1, backgroundColor: 'white', width:4 }}>
                             <Text style={{ fontSize: 0.6, textAlign: 'left', color: 'black' }}>{this.state.rightPartOfWord}</Text>
                         </View>
                     </View>
                 </View>
-                <VrButton
-                    style={{ width: 1.7, height: 0.3, backgroundColor: "grey" }}
-                    onClick={this.props.backPressed}>
-                    <Text style={{ fontSize: 0.2, textAlign: "center" }}>Back</Text>
-                </VrButton>
+                <View style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    width: 5,
+                    alignItems: "stretch",
+                    transform: [{ translate: [-4, 1, -5] }],
+                    marginBottom: 0.1
+                }}>
+                    <VrButton
+                        style={{ width: 1.7, height: 0.3, backgroundColor: "grey" }}
+                        onClick={this.props.backPressed}>
+                        <Text style={{ fontSize: 0.2, textAlign: "center" }}>Back</Text>
+                    </VrButton>
+                </View>
             </View>
         );
     }
