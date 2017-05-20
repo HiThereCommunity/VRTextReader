@@ -48,8 +48,6 @@ export default class VRTextReader extends React.Component {
         delta = -1;
       } else if (index > selectedSpeakerIndex + 2) {
         delta = 1;
-      } else {
-        delta = 0;
       }
 
       return {
@@ -57,7 +55,7 @@ export default class VRTextReader extends React.Component {
         title,
         name,
         onLook: () => {
-          if (delta !== 0) {
+          if (delta) {
             this.setState({
               offset: this.state.offset - delta
             });
