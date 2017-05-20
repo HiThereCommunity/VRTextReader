@@ -59,7 +59,7 @@ export default class VRTextReader extends React.Component {
         <View>
         <View style={{
             flex: 1,
-            flexDirection: 'column',
+            flexDirection: 'row',
             width: 2,
             alignItems: 'stretch',
             transform: [{ translate: [-1, 1, -5] }],
