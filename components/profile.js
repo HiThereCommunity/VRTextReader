@@ -33,7 +33,7 @@ export default class ViewColoredBoxesWithText extends Component {
             flexDirection: "row",
             width: 5,
             alignItems: "stretch",
-            transform: [{ translate: [-4, 1, -5] }],
+            transform: [{ translate: [-3, 1, -5] }],
             marginBottom: 0.1
           }}
         >

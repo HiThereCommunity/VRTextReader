@@ -132,13 +132,13 @@ export default class VRTextReader extends React.Component {
                     flexDirection: "row",
                     width: 5,
                     alignItems: "left",
-                    transform: [{ translate: [-4, 1, -5] }],
+                    transform: [{ translate: [-3, 1, -5] }],
                     marginBottom: 0.1
                 }}>
                     <VrButton
                         style={{ width: 1.7, height: 0.3 }}
                         onClick={this.props.backPressed}>
-                        <Text style={{ fontSize: 0.2, textAlign: "left" }}>Back</Text>
+                        <Image style={{ width: 0.25, height: 0.25 }} source={asset("back.png")}/>
                     </VrButton>
                 </View>
                 <Profile speaker={this.props.speaker} />
@@ -148,23 +148,23 @@ export default class VRTextReader extends React.Component {
                         flexDirection: "row",
                         width: 2,
                         alignItems: "stretch",
-                        transform: [{ translate: [-4, 1, -5] }],
+                        transform: [{ translate: [-3, 1, -5] }],
                         marginBottom: 0.1
                     }}>
                     <VrButton
-                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "green", marginRight: 0.1 }}
+                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "#4CAF50", marginRight: 0.1 }}
                         onClick={this._start}
                     >
                         <Image style={{ width: 0.25, height: 0.25 }} source={asset("play.png")}/>
                     </VrButton>
                     <VrButton
-                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "grey", marginRight: 0.1 }}
+                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "#9E9E9E", marginRight: 0.1 }}
                         onClick={this._pauze.bind(this)}
                     >
                         <Image style={{ width: 0.25, height: 0.25 }} source={asset("stop.png")}/>
                     </VrButton>
                     <VrButton
-                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "red" }}
+                        style={{ flex: 1, flexDirection: "row", alignItems: "center", justifyContent: "space-around", height: 0.3, backgroundColor: "#F44336" }}
                         onClick={this._reset.bind(this)}
                     >
                         <Image style={{ width: 0.25, height: 0.25 }} source={asset("replay.png")}/>
@@ -176,7 +176,7 @@ export default class VRTextReader extends React.Component {
                     width: 19,
                     alignItems: 'stretch',
                     backgroundColour: 'white',
-                    transform: [{ translate: [-4, 1, -5] }]
+                    transform: [{ translate: [-3, 1, -5] }]
                 }}>
                     <View style={{ marginLeft: 0.3, height: 1, width: 2 }}>
                         <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'white' }}>{this.state.leftPartOfWord}</Text>
