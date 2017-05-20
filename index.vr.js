@@ -1,15 +1,21 @@
-// @flow
+//@flow
 
 import React from "react";
-import { AppRegistry, asset, Pano, Text, View } from "react-vr";
-import SpeakerList from "./speakerList";
+
+//$FlowFixMe
+import { AppRegistry, asset, Pano, Text, View, VrButton, Image } from "react-vr";
+
+import App from "./components/router";
+
+type State = {
+  currentCount: number,
+  intervalId: number
+};
 
 export default class VRTextReader extends React.Component {
 
   render() {
-    return (
-      <SpeakerList />
-    )
+    return (<App/>);
   }
 }
 
