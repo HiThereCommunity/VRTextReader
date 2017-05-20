@@ -67,6 +67,7 @@ export default class Router extends React.Component {
         content = (
           <Detail
             description={state.speaker.talks[0].description}
+            speaker={state.speaker}
             backPressed={() => {
               this.setState({
                 state: {

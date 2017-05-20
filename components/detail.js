@@ -15,19 +15,23 @@ import {
 } from "react-vr";
 import text from "../text";
 import { splitText } from "../utils";
-
-
+import { type Speaker } from "../query";
+import Profile from "./profile";
 
 type State = {
     currentCount: number,
     intervalId: number,
     textArray: Array<string>,
-    start: boolean
+    start: boolean,
+    leftPartOfWord: string,
+    rightPartOfWord: string,
+    highlightedLetter: string
 };
 
 type Props = {
-    backPressed: () => void,
-    description: string
+  backPressed: () => void,
+  description: string,
+  speaker: Speaker
 };
 
 export default class VRTextReader extends React.Component {
@@ -42,7 +46,7 @@ export default class VRTextReader extends React.Component {
         this._timer = this._timer.bind(this);
         //$FlowFixMe
         this._start = this._start.bind(this);
-
+        //$FlowFixMe
         this._pauze - this._pauze.bind(this);
 
         this.state = {
@@ -118,6 +122,7 @@ export default class VRTextReader extends React.Component {
     render() {
         return (
             <View>
+              <Profile speaker={this.props.speaker}/>
                 <View
                     style={{
                         flex: 1,
@@ -182,6 +187,7 @@ export default class VRTextReader extends React.Component {
             </View>
         );
     }
+
 }
 
 AppRegistry.registerComponent("VRTextReader", () => VRTextReader);
