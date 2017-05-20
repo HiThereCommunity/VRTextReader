@@ -70,18 +70,23 @@ export default class VRTextReader extends React.Component {
     }
 
     _start() {
+        if (this.state.intervalId !== 0) this.setState({ start: true });
         const intervalId = setInterval(this._timer, 200);
         this.setState({ intervalId: intervalId, start: true });
     }
 
     _pauze() {
         if (this.state.intervalId !== 0) clearInterval(this.state.intervalId);
-        this.setState({ start: false, intervalId: 0 });
+        this.setState({ start: false });
     }
 
     _reset() {
-        if (this.state.intervalId !== 0) clearInterval(this.state.intervalId);
-        this.setState({ start: false, currentCount: 0, intervalId: 0 });
+        if (this.state.intervalId !== 0)
+            clearInterval(this.state.intervalId);
+        this.setState({
+            start: false, currentCount: 0, intervalId: 0, leftPartOfWord: '',
+            rightPartOfWord: '',
+            highlightedLetter: '' });
     }
 
     _timer() {
