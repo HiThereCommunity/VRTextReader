@@ -32,8 +32,9 @@ export default class VRTextReader extends React.Component {
       var txt = textSplit[this.state.currentCount];
       if (txt == null)
       {
-          this.setState({ currentCount: 0 });
-          return;
+          clearInterval(this.state.intervalId);
+          var intervalId = setInterval(this.timer, 200);
+          this.setState({ intervalId: intervalId });
       }
     var wordChars = Array.from(txt);
     var wordCharsLength = wordChars.length;
@@ -58,26 +59,25 @@ export default class VRTextReader extends React.Component {
   render() {
       return (
           <View>
-            <Pano source={{ uri: 'white.png' }} />
-                <View style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    width: 10,
-                    alignItems: 'stretch',
-                    backgroundColor: 'white',
-                    transform: [{ translate: [-4.4, 1, -5] }],
-                }}>
-                    <View style={{ margin: 0, height: 0.3, backgroundColor: 'white', width: 4}}>
-                        <Text style={{ fontSize: 0.8, textAlign: 'right', color: 'black' }}>{this.state.leftPartOfWord}</Text>
-                    </View>
-                    <View style={{ margin: 0, height: 0.3, backgroundColor: 'white' }}>
-                      <Text style={{ fontSize: 0.8, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
-                    </View>
-                    <View style={{ margin: 0, height: 0.3, backgroundColor: 'white' }}>
-                      <Text style={{ fontSize: 0.8, textAlign: 'left', color:'black' }}>{this.state.rightPartOfWord}</Text>
-                    </View>
-                </View>     
-            </View>
+            <Pano source={asset('gray.png')} />
+            <View style={{
+                flex: 1,
+                flexDirection: 'row',
+                width: 10,
+                alignItems: 'stretch',
+                transform: [{ translate: [-4.4, 1, -10] }],
+            }}>
+                <View style={{ margin: 0, height: 1, backgroundColor: 'gray', width: 4}}>
+                    <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'black' }}>{this.state.leftPartOfWord}</Text>
+                </View>
+                <View style={{ margin: 0, height: 1, backgroundColor: 'gray' }}>
+                    <Text style={{ fontSize: 0.6, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
+                </View>
+                <View style={{ margin: 0, height: 1, backgroundColor: 'gray', width: 4 }}>
+                    <Text style={{ fontSize: 0.6, textAlign: 'left', color:'black' }}>{this.state.rightPartOfWord}</Text>
+                </View>
+            </View>     
+        </View>
     );
   }
 }
