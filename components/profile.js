@@ -28,14 +28,14 @@ export default class ViewColoredBoxesWithText extends Component {
     const { avatarUrl, name } = this.props.speaker;
 
     return (
-      <View>
         <View
           style={{
             flex: 1,
             flexDirection: "row",
             width: 5,
             alignItems: "stretch",
-            transform: [{ translate: [-1, 1, -5] }]
+            transform: [{ translate: [-4, 1, -5] }],
+            marginBottom: 0.1
           }}
         >
           <View style={{ marginRight: 1, height: 2, width: 2, backgroundColor: "white" }}>
@@ -47,7 +47,6 @@ export default class ViewColoredBoxesWithText extends Component {
             <Text style={{ fontSize: 0.2, textAlign: "center" }}>{name}</Text>
           </View>
         </View>
-      </View>
     );
   }
 }

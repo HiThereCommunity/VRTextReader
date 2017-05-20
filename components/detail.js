@@ -29,9 +29,9 @@ type State = {
 };
 
 type Props = {
-  backPressed: () => void,
-  description: string,
-  speaker: Speaker
+    backPressed: () => void,
+    description: string,
+    speaker: Speaker
 };
 
 export default class VRTextReader extends React.Component {
@@ -47,7 +47,7 @@ export default class VRTextReader extends React.Component {
         //$FlowFixMe
         this._start = this._start.bind(this);
         //$FlowFixMe
-        this._pauze - this._pauze.bind(this);
+        //this._pauze - this._pauze.bind(this);
 
         this.state = {
             intervalId: 0,
@@ -122,7 +122,7 @@ export default class VRTextReader extends React.Component {
     render() {
         return (
             <View>
-              <Profile speaker={this.props.speaker}/>
+                <Profile speaker={this.props.speaker} />
                 <View
                     style={{
                         flex: 1,
@@ -140,34 +140,33 @@ export default class VRTextReader extends React.Component {
                     </VrButton>
                     <VrButton
                         style={{ flex: 1, height: 0.3, backgroundColor: "grey", marginRight: 0.1 }}
-                        onClick={this._pauze}
+                        onClick={this._pauze.bind(this)}
                     >
                         <Text style={{ fontSize: 0.2, textAlign: "center" }}>Stop</Text>
                     </VrButton>
                     <VrButton
                         style={{ flex: 1, height: 0.3, backgroundColor: "red" }}
-                        onClick={this._reset}
+                        onClick={this._reset.bind(this)}
                     >
                         <Text style={{ fontSize: 0.2, textAlign: "center" }}>Reset</Text>
                     </VrButton>
                 </View>
-                <View style={{ marginBottom: 0.1, height: 1.6, width: 5, backgroundColor: "white" }}>
-                    <View style={{
-                        flex: 1,
-                        flexDirection: 'row',
-                        width: 8,
-                        alignItems: 'stretch',
-                        transform: [{ translate: [-4, 1, -5] }]
-                    }}>
-                        <View style={{ margin: 0, height: 1, backgroundColor: 'white', width: 3 }}>
-                            <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'black' }}>{this.state.leftPartOfWord}</Text>
-                        </View>
-                        <View style={{ margin: 0, height: 1, backgroundColor: 'white' }}>
-                            <Text style={{ fontSize: 0.6, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
-                        </View>
-                        <View style={{ margin: 0, height: 1, backgroundColor: 'white', width:4 }}>
-                            <Text style={{ fontSize: 0.6, textAlign: 'left', color: 'black' }}>{this.state.rightPartOfWord}</Text>
-                        </View>
+                <View style={{
+                    flex: 1,
+                    flexDirection: 'row',
+                    width: 19,
+                    alignItems: 'stretch',
+                    backgroundColour: 'white',
+                    transform: [{ translate: [-4, 1, -5] }]
+                }}>
+                    <View style={{ margin: 0, height: 1, width: 2 }}>
+                        <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'white' }}>{this.state.leftPartOfWord}</Text>
+                    </View>
+                    <View style={{ margin: 0, height: 1 }}>
+                        <Text style={{ fontSize: 0.6, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
+                    </View>
+                    <View style={{ margin: 0, height: 1, width: 2 }}>
+                        <Text style={{ fontSize: 0.6, textAlign: 'left', color: 'white' }}>{this.state.rightPartOfWord}</Text>
                     </View>
                 </View>
                 <View style={{
