@@ -131,7 +131,7 @@ export default class VRTextReader extends React.Component {
                     flex: 1,
                     flexDirection: "row",
                     width: 5,
-                    alignItems: "left",
+                    alignItems: "stretch",
                     transform: [{ translate: [-2.5, 1, -5] }],
                     marginBottom: 0.1
                 }}>
@@ -175,7 +175,7 @@ export default class VRTextReader extends React.Component {
                     flexDirection: 'row',
                     width: 19,
                     alignItems: 'stretch',
-                    backgroundColour: 'white',
+
                     transform: [{ translate: [-2.5, 1, -5] }]
                 }}>
                     <View style={{ marginLeft: 0.3, height: 1, width: 2 }}>

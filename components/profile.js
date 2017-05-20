@@ -29,7 +29,7 @@ export default class ViewColoredBoxesWithText extends Component {
     const { avatarUrl, name, talks } = this.props.speaker;
 
     let highlighted = {
-      fontWeight: 500
+      fontWeight: "500"
     }
     return (
         <View
