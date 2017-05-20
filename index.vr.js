@@ -68,13 +68,13 @@ export default class VRTextReader extends React.Component {
                     transform: [{ translate: [-4.4, 1, -5] }],
                 }}>
                     <View style={{ margin: 0, height: 0.3, backgroundColor: 'white', width: 4}}>
-                        <Text style={{ fontSize: 1.2, textAlign: 'right', color: 'black' }}>{this.state.leftPartOfWord}</Text>
+                        <Text style={{ fontSize: 0.8, textAlign: 'right', color: 'black' }}>{this.state.leftPartOfWord}</Text>
                     </View>
                     <View style={{ margin: 0, height: 0.3, backgroundColor: 'white' }}>
-                        <Text style={{ fontSize: 1.2, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
+                      <Text style={{ fontSize: 0.8, textAlign: 'center', color: 'red' }}>{this.state.highlightedLetter}</Text>
                     </View>
                     <View style={{ margin: 0, height: 0.3, backgroundColor: 'white' }}>
-                        <Text style={{ fontSize: 1.2, textAlign: 'left', color:'black' }}>{this.state.rightPartOfWord}</Text>
+                      <Text style={{ fontSize: 0.8, textAlign: 'left', color:'black' }}>{this.state.rightPartOfWord}</Text>
                     </View>
                 </View>     
             </View>
