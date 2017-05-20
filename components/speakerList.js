@@ -1,24 +1,24 @@
 // @flow
 
 import React from "react";
+//$FlowFixMe
 import { AppRegistry, asset, Pano, Text, View } from "react-vr";
 import Speaker from "./speaker";
 
-import API, { type APIResult } from "./query";
+import API, { type Speaker as SpeakerType } from "../query";
 
 export default class VRTextReader extends React.Component {
-
   state: {
     offset: number,
-    data: ?APIResult
-  }
+    data: ?Array<SpeakerType>
+  };
 
   async componentDidMount(): any {
     const data = await API();
 
     this.setState({
       data
-    })
+    });
   }
 
   constructor() {
@@ -27,31 +27,27 @@ export default class VRTextReader extends React.Component {
     this.state = {
       offset: 0,
       data: null
-    }
+    };
   }
 
   render() {
-
-    let contentAmount = thursdaySections.length;
-
-    let selectedSpeakerIndex = (contentAmount/2) - this.state.offset;
-
     if (!this.state.data) {
       return null;
     }
+
+    let contentAmount = this.state.data.length;
+    let selectedSpeakerIndex = contentAmount / 2 - this.state.offset;
 
     const content = this.state.data.map((el, index) => {
       let profileUrl = el.avatarUrl;
       let text = el.talks[0].title;
 
       let delta;
-      if (index < selectedSpeakerIndex) {
+      if (index < selectedSpeakerIndex - 2) {
         delta = -1;
-      }
-      else if (index > selectedSpeakerIndex) {
+      } else if (index > selectedSpeakerIndex + 2) {
         delta = 1;
-      }
-      else {
+      } else {
         delta = 0;
       }
 
@@ -61,7 +57,10 @@ export default class VRTextReader extends React.Component {
         onLook: () => {
           this.setState({
             offset: this.state.offset - delta
-          })
+          });
+        },
+        onClick: () => {
+          this.props.onSpeakerSelection(el)
         }
       };
     });

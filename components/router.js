@@ -1,20 +1,34 @@
-
 //@flow
-
 
 import React from "react";
 
-//$FlowFixMe
-import { AppRegistry, asset, Pano, Text, View, VrButton, Image } from "react-vr";
+import {
+  AppRegistry,
+  asset,
+  Pano,
+  Text,
+  View,
+  VrButton,
+  Image
+  // $FlowFixMe
+} from "react-vr";
 
 import Home from "./menu";
-import Detail from "./detail"
-
+import Detail from "./detail";
+import SpeakerList from "./speakerList";
+import { type Speaker } from "../query";
 
 type Route = "HOME" | "DETAIL";
 
 type State = {
-  route: Route
+  state:
+    | {
+        route: "HOME"
+      }
+    | {
+        route: "DETAIL",
+        speaker: Speaker
+      }
 };
 
 export default class Router extends React.Component {
@@ -24,26 +38,48 @@ export default class Router extends React.Component {
   constructor() {
     super();
     this.state = {
-      route: "HOME"
+      state: {
+        route: "HOME"
+      }
     };
   }
 
   render() {
     let content;
-    switch(this.state.route) {
+    const { state } = this.state;
+
+    switch (state.route) {
       case "HOME":
-          content = <Home setRoute={(route: Route) => {
-            this.setState({route});
-          }}/>
-          break;
+        content = (
+          <SpeakerList
+            onSpeakerSelection={speaker => {
+              this.setState({
+                state: {
+                  route: "DETAIL",
+                  speaker
+                }
+              });
+            }}
+          />
+        );
+        break;
       case "DETAIL":
-          content = <Detail description="This is a monkey in a box. Hello There!" backPressed={() => {
-            this.setState({route: "HOME"});
-          }}/>
-          break;
+        content = (
+          <Detail
+            description={state.speaker.talks[0].description}
+            backPressed={() => {
+              this.setState({
+                state: {
+                  route: "HOME"
+                }
+              });
+            }}
+          />
+        );
+        break;
       default:
-          throw new Error("No Route");
-      }
+        throw new Error("No Route");
+    }
 
     return content;
   }

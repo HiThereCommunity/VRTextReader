@@ -20,7 +20,7 @@ const query = `
   }
 }`;
 
-export type APIResult = Array<{
+export type Speaker = {
   avatarUrl: string,
   bio: string,
   name: string,
@@ -29,9 +29,13 @@ export type APIResult = Array<{
     startDate: string,
     title: string
   }>
-}>
+};
 
-export default (): Promise<APIResult> => {
+
+//export type APIResult = Array<Speaker>
+
+
+export default (): Promise<Array<Speaker>> => {
   return fetch("https://www.react-europe.org/gql", {
     method: "POST",
     body: JSON.stringify({
