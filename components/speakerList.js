@@ -40,7 +40,8 @@ export default class VRTextReader extends React.Component {
 
     const content = this.state.data.map((el, index) => {
       let profileUrl = el.avatarUrl;
-      let text = el.talks[0].title;
+      let name = el.name;
+      let title = el.talks[0].title;
 
       let delta;
       if (index < selectedSpeakerIndex - 2) {
@@ -53,11 +54,14 @@ export default class VRTextReader extends React.Component {
 
       return {
         profileUrl,
-        text,
+        title,
+        name,
         onLook: () => {
-          this.setState({
-            offset: this.state.offset - delta
-          });
+          if (delta !== 0) {
+            this.setState({
+              offset: this.state.offset - delta
+            });
+          }
         },
         onClick: () => {
           this.props.onSpeakerSelection(el)
@@ -75,7 +79,7 @@ export default class VRTextReader extends React.Component {
             flexDirection: "row",
             alignItems: "center",
             layoutOrigin: [0.5, 0.5, 0],
-            transform: [{ translate: [this.state.offset, 0, -4] }]
+            transform: [{ translate: [this.state.offset, 0, -3] }]
           }}
         >
           {speakers}
