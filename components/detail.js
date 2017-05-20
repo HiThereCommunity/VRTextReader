@@ -132,7 +132,7 @@ export default class VRTextReader extends React.Component {
                     flexDirection: "row",
                     width: 5,
                     alignItems: "stretch",
-                    transform: [{ translate: [-2.5, 1, -5] }],
+                    transform: [{ translate: [-3, 2, -5] }],
                     marginBottom: 0.1
                 }}>
                     <VrButton
@@ -148,7 +148,7 @@ export default class VRTextReader extends React.Component {
                         flexDirection: "row",
                         width: 2,
                         alignItems: "stretch",
-                        transform: [{ translate: [-2.5, 1, -5] }],
+                        transform: [{ translate: [-3, 2, -5] }],
                         marginBottom: 0.1
                     }}>
                     <VrButton
@@ -176,7 +176,7 @@ export default class VRTextReader extends React.Component {
                     width: 19,
                     alignItems: 'stretch',
 
-                    transform: [{ translate: [-2.5, 1, -5] }]
+                    transform: [{ translate: [-3, 2, -5] }]
                 }}>
                     <View style={{ marginLeft: 0.3, height: 1, width: 2 }}>
                         <Text style={{ fontSize: 0.6, textAlign: 'right', color: 'white' }}>{this.state.leftPartOfWord}</Text>
